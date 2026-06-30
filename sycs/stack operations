@@ -1,0 +1,71 @@
+stack = []
+
+while True:
+    print(" Interactive Stack Operations ")
+
+    if len(stack) == 0:
+        print("Current Stack: Stack is Empty")
+    else:
+        print("Current Stack:", stack)
+
+    print("\n1. Insert an item")
+    print("2. Delete an item")
+    print("3. Peek at the top item")
+    print("4. Check if the stack is empty")
+    print("5. Get the size of the stack")
+    print("6. Traverse the stack")
+    print("7. Quit")
+
+    choice = int(input("\nChoose an operation (1-7): "))
+
+    if choice == 1:
+        item = input("Enter an item to insert: ")
+        position = int(input("Enter the position to insert at (0-based index): "))
+
+        if position >= 0 and position <= len(stack):
+            stack.insert(position, item)
+            print("Item inserted successfully.")
+        else:
+            print("Invalid Position!")
+
+    elif choice == 2:
+        if len(stack) == 0:
+            print("Stack is Empty.")
+        else:
+            position = int(input("Enter the position to delete: "))
+
+            if position >= 0 and position < len(stack):
+                removed = stack.pop(position)
+                print("Deleted Item:", removed)
+            else:
+                print("Invalid Position!")
+
+    elif choice == 3:
+        if len(stack) == 0:
+            print("Stack is Empty.")
+        else:
+            print("Top Item:", stack[-1])
+
+    elif choice == 4:
+        if len(stack) == 0:
+            print("Stack is Empty.")
+        else:
+            print("Stack is Not Empty.")
+
+    elif choice == 5:
+        print("Stack Size:", len(stack))
+
+    elif choice == 6:
+        if len(stack) == 0:
+            print("Stack is Empty.")
+        else:
+            print("Stack Elements:")
+            for i in stack:
+                print(i)
+
+    elif choice == 7:
+        print("Program Ended.")
+        break
+
+    else:
+        print("Invalid Choice!")
